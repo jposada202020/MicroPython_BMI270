@@ -16,7 +16,7 @@ MicroPython Driver for the Bosch BMI270 Accelerometer/Gyro Sensor
 import time
 from micropython import const
 from micropython_bmi270.i2c_helpers import CBits, RegisterStruct
-from micropython_bmi270.config_file import bmi270_config_file
+
 
 try:
     from typing import Tuple
@@ -289,6 +289,7 @@ class BMI270:
         if self.internal_status == 0x01:
             print(hex(self._address), " --> Initialization already done")
         else:
+            from micropython_bmi270.config_file import bmi270_config_file
             print(hex(self._address), " --> Initializing...")
             self._power_configuration = 0x00
             time.sleep(0.00045)
