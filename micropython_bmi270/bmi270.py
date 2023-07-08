@@ -52,7 +52,12 @@ ACCEL_RANGE_2G = const(0b00)
 ACCEL_RANGE_4G = const(0b01)
 ACCEL_RANGE_8G = const(0b10)
 ACCEL_RANGE_16G = const(0b11)
-acceleration_range_values = (ACCEL_RANGE_2G, ACCEL_RANGE_4G, ACCEL_RANGE_8G, ACCEL_RANGE_16G)
+acceleration_range_values = (
+    ACCEL_RANGE_2G,
+    ACCEL_RANGE_4G,
+    ACCEL_RANGE_8G,
+    ACCEL_RANGE_16G,
+)
 
 ACCELERATOR_DISABLED = const(0b0)
 ACCELERATOR_ENABLED = const(0b1)
@@ -63,7 +68,13 @@ GYRO_RANGE_1000 = const(0b001)
 GYRO_RANGE_500 = const(0b010)
 GYRO_RANGE_250 = const(0b011)
 GYRO_RANGE_125 = const(0b100)
-gyro_range_values = (GYRO_RANGE_2000, GYRO_RANGE_1000, GYRO_RANGE_500, GYRO_RANGE_250, GYRO_RANGE_125)
+gyro_range_values = (
+    GYRO_RANGE_2000,
+    GYRO_RANGE_1000,
+    GYRO_RANGE_500,
+    GYRO_RANGE_250,
+    GYRO_RANGE_125,
+)
 
 # RESET Command
 RESET_COMMAND = const(0xB6)
@@ -73,6 +84,7 @@ _INIT_CTRL = const(0x59)
 _INIT_ADDR_0 = const(0x5B)
 _INIT_ADDR_1 = const(0x5C)
 _INIT_DATA = const(0x5E)
+
 
 class BMI270:
     """Driver for the BMI270 Sensor connected over I2C.
@@ -179,9 +191,11 @@ class BMI270:
         if i2c_err:
             print("Error in I2C-Master detected. This flag will be reset when read.")
         if fifo_err:
-            print("Error when a frame is read in streaming mode (so skipping is not possible) \n"
-                  + "and fifo is overfilled (with virtual and/or regular frames). This flag will\n"
-                  + "be reset when read.")
+            print(
+                "Error when a frame is read in streaming mode (so skipping is not possible) \n"
+                + "and fifo is overfilled (with virtual and/or regular frames). This flag will\n"
+                + "be reset when read."
+            )
         if internal_error != 0:
             print("Internal Sensor Error")
         if fatal_error:
@@ -226,7 +240,12 @@ class BMI270:
         | :py:const:`bmi270.ACCEL_RANGE_16G` | :py:const:`0b11` |
         +------------------------------------+------------------+
         """
-        values = ("ACCEL_RANGE_2G", "ACCEL_RANGE_4G", "ACCEL_RANGE_8G", "ACCEL_RANGE_16G")
+        values = (
+            "ACCEL_RANGE_2G",
+            "ACCEL_RANGE_4G",
+            "ACCEL_RANGE_8G",
+            "ACCEL_RANGE_16G",
+        )
         return values[self._acceleration_range]
 
     @acceleration_range.setter
@@ -255,7 +274,9 @@ class BMI270:
     @acceleration_operation_mode.setter
     def acceleration_operation_mode(self, value: int) -> None:
         if value not in acceleration_operation_mode_values:
-            raise ValueError("Value must be a valid acceleration_operation_mode setting")
+            raise ValueError(
+                "Value must be a valid acceleration_operation_mode setting"
+            )
         self._acceleration_operation_mode = value
 
     def load_config_file(self) -> None:
@@ -276,12 +297,20 @@ class BMI270:
                 self._init_address_0 = 0x00
                 self._init_address_1 = i
                 time.sleep(0.03)
-                self._i2c.writeto_mem(self._address, 0x5E, bytes(bmi270_config_file[i * 32:(i + 1) * 32]))
+                self._i2c.writeto_mem(
+                    self._address,
+                    0x5E,
+                    bytes(bmi270_config_file[i * 32 : (i + 1) * 32]),
+                )
                 time.sleep(0.000020)
             self._init_control = 0x01
             time.sleep(0.02)
-            print(hex(self._address),
-                  " --> Initialization status: " + '{:08b}'.format(self.internal_status) + "\t(00000001 --> OK)")
+            print(
+                hex(self._address),
+                " --> Initialization status: "
+                + "{:08b}".format(self.internal_status)
+                + "\t(00000001 --> OK)",
+            )
 
     @property
     def gyro_range(self) -> str:
@@ -302,7 +331,13 @@ class BMI270:
         | :py:const:`bmi270.GYRO_RANGE_125`  | :py:const:`0b100` |
         +------------------------------------+-------------------+
         """
-        values = ("GYRO_RANGE_2000", "GYRO_RANGE_1000", "GYRO_RANGE_500", "GYRO_RANGE_250", "GYRO_RANGE_125")
+        values = (
+            "GYRO_RANGE_2000",
+            "GYRO_RANGE_1000",
+            "GYRO_RANGE_500",
+            "GYRO_RANGE_250",
+            "GYRO_RANGE_125",
+        )
         return values[self._gyro_range]
 
     @gyro_range.setter

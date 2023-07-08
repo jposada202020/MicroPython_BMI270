@@ -13,7 +13,10 @@ bmi.acceleration_operation_mode = bmi270.ACCELERATOR_ENABLED
 
 while True:
     for acceleration_operation_mode in bmi270.acceleration_operation_mode_values:
-        print("Current Acceleration operation mode setting: ", bmi.acceleration_operation_mode)
+        print(
+            "Current Acceleration operation mode setting: ",
+            bmi.acceleration_operation_mode,
+        )
         for _ in range(10):
             accx, accy, accz = bmi.acceleration
             print("x:{:.2f}m/s2, y:{:.2f}m/s2, z:{:.2f}m/s2".format(accx, accy, accz))
