@@ -1,0 +1,49 @@
+# SPDX-FileCopyrightText: Copyright (c) 2023 Jose D. Montoya
+#
+# SPDX-License-Identifier: MIT
+
+[build-system]
+requires = [
+    "setuptools",
+    "wheel",
+    "setuptools-scm",
+]
+
+[project]
+name = "micropython-bmi270"
+description = "MicroPython Driver for the Bosch BMI270 Accelerometer/Gyro Sensor"
+version = "0.0.0+auto.0"
+readme = "README.rst"
+authors = [
+    {name = "JDM", email = "xxyx@mailmeto.mozmail.com"}
+]
+urls = {Homepage = "https://github.com/jposada202020/MicroPython_BMI270"}
+keywords = [
+    "sensor",
+    "micropython",
+    "bmi270",
+    "micropython",
+    "driver",
+    "sensor",
+    "bosch",
+    "bmi270",
+    "acceleration",
+    "accelerometer",
+    "gyro",
+]
+license = {text = "MIT"}
+classifiers = [
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Embedded Systems",
+    "Topic :: System :: Hardware",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: Implementation :: MicroPython",
+]
+dynamic = ["dependencies", "optional-dependencies"]
+
+[tool.setuptools]
+packages = ["micropython_bmi270"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}

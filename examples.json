@@ -1,0 +1,9 @@
+{
+  "urls": [
+    ["micropython_bmi270/examples/bmi270_gyro_range.py", "github:jposada202020/MicroPython_BMI270/examples/bmi270_gyro_range.py"],
+    ["micropython_bmi270/examples/bmi270_acceleration_range.py", "github:jposada202020/MicroPython_BMI270/examples/bmi270_acceleration_range.py"],
+    ["micropython_bmi270/examples/bmi270_acceleration_operation_mode.py", "github:jposada202020/MicroPython_BMI270/examples/bmi270_acceleration_operation_mode.py"],
+    ["micropython_bmi270/examples/bmi270_simpletest.py", "github:jposada202020/MicroPython_BMI270/examples/bmi270_simpletest.py"]
+  ],
+  "version": "0.1"
+}

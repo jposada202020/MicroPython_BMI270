@@ -1,0 +1,8 @@
+{
+  "urls": [
+    ["micropython_bmi270/__init__.py", "github:jposada202020/MicroPython_BMI270/micropython_bmi270/__init__.py"],
+    ["micropython_bmi270/i2c_helpers.py", "github:jposada202020/MicroPython_BMI270/micropython_bmi270/i2c_helpers.py"],
+    ["micropython_bmi270/bmi270.py", "github:jposada202020/MicroPython_BMI270/micropython_bmi270/bmi270.py"]
+  ],
+  "version": "0.1"
+}
