@@ -21,8 +21,6 @@ urls = {Homepage = "https://github.com/jposada202020/MicroPython_BMI270"}
 keywords = [
     "sensor",
     "micropython",
-    "bmi270",
-    "micropython",
     "driver",
     "sensor",
     "bosch",

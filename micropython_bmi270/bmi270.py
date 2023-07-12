@@ -35,7 +35,7 @@ _ACC_RANGE = const(0x41)
 _PWR_CTRL = const(0x7D)
 _GYRO_RANGE = const(0x43)
 
-_STANDARD_GRAVITY = 9.80665
+_STANDARD_GRAVITY = const(9.80665)
 
 # Acceleration Data
 ACC_X_LSB = const(0x0C)
@@ -114,6 +114,8 @@ class BMI270:
     Now you have access to the attributes
 
     .. code-block:: python
+
+        acc_x, acc_y, acc_z = bmi270.acceleration
 
     """
 
@@ -214,7 +216,7 @@ class BMI270:
     @property
     def acceleration(self) -> Tuple[float, float, float]:
         """
-        Sensor Acceleration
+        Sensor Acceleration in :math:`m/s^2`
         """
 
         x = self._acc_data_x / self._acceleration_factor_cached * _STANDARD_GRAVITY
@@ -290,6 +292,7 @@ class BMI270:
             print(hex(self._address), " --> Initialization already done")
         else:
             from micropython_bmi270.config_file import bmi270_config_file
+
             print(hex(self._address), " --> Initializing...")
             self._power_configuration = 0x00
             time.sleep(0.00045)
