@@ -23,8 +23,8 @@ Introduction
     :target: https://github.com/psf/black
     :alt: Code Style: Black
 
-MicroPython Driver for the Bosch BMI270 Accelerometer/Gyro Sensor. Be aware that as far as I can tell you need to load the configuration first in 
-order to use the sensor. The configuration will stay until the next Power-On. 
+MicroPython Driver for the Bosch BMI270 Accelerometer/Gyro Sensor. Be aware that as far as I can tell you need to load the configuration first in
+order to use the sensor. The configuration will stay until the next Power-On.
 
 
 
